@@ -1,8 +1,8 @@
 import { fetchData } from './fetchData.js';
-import { addDay, numOfDays, monthDays } from './dateTime.js';
+import { addDay, monthDays, numOfDays } from './dateTime.js';
 
 //   ---TESTING---
-const TEST_CONFIG = JSON.parse(await Deno.readTextFile('./testConfig.json'));
+const TEST_CONFIG = JSON.parse(await Deno.readTextFile('./test-config.json'));
 const KEY_ID = TEST_CONFIG.keyId;
 const KEY_SECRET = TEST_CONFIG.keySecret;
 const STATION_ID = TEST_CONFIG.stationId;
@@ -17,15 +17,14 @@ const CONFIG = JSON.parse(await Deno.readTextFile('./config.json'));
 //const TIMEZONE = CONFIG.timeZone
 //const CURRENCY = CONFIG.money
 
-
 const TODAY = new Date().toISOString().substring(0, 10);
-const START_DATE = '2024-01-01'
-const YEAR = START_DATE.substring(0,4)
-const MONTH = START_DATE.substring(5,7)
-const END_DATE = `${YEAR}-12-${monthDays(MONTH, YEAR)}`;
+const START_DATE = '2024-01-01';
+const YEAR = START_DATE.substring(0, 4);
+const MONTH = START_DATE.substring(5, 7);
+const END_DATE = '2024-01-01';
+//const END_DATE = `${YEAR}-12-${monthDays(MONTH, YEAR)}`;
 const DEVICE = 'station';
 const ENDPOINT = '7';
-
 
 //const START_DATE = prompt('Start Date:', '2021-09-01');
 //const END_DATE = prompt('End Date:', '2021-09-30');

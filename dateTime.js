@@ -1,6 +1,7 @@
 export {
 	addDay,
 	checkLeapYear,
+	formatDateTimeLocal,
 	monthDays,
 	numOfDays,
 	numOfMonths,
@@ -104,4 +105,42 @@ function numOfYears(startDate, endDate) {
 //Set a wait time in milliseconds
 function sleep(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+//--- FORMAT TO LOCAL TIME ---//
+//--- Helper: zero-pad number to two digits ---//
+function pad2(n) {
+	return n.toLocaleString().padStart(2, '0');
+}
+//--- Helper: zero-pad number to three digits ---//
+function pad3(n) {
+	return n.toLocaleString().padStart(3, '0');
+}
+//--- Helper: format time as "HH:MM:SS.mmm" ---//
+function formatDateTimeLocal(date) {
+	const TZONE = Math.floor(date.getTimezoneOffset() * -60000);
+	const TZH = pad2(Math.floor(date.getTimezoneOffset() / -60));
+	const TZM = pad2(
+		(date.getTimezoneOffset() / -60 -
+			Math.floor(date.getTimezoneOffset() / -60)) * 60,
+	); //.toString().padStart(2, '0');
+	const NEW_DATE = new Date(date.getTime() + TZONE);
+	const hh = pad2(NEW_DATE.getUTCHours());
+	const mm = pad2(NEW_DATE.getUTCMinutes());
+	const ss = pad2(NEW_DATE.getUTCSeconds());
+	const ms = pad3(NEW_DATE.getUTCMilliseconds());
+	const YYYY = NEW_DATE.getUTCFullYear();
+	const MM = pad2(NEW_DATE.getUTCMonth() + 1);
+	const DD = pad2(NEW_DATE.getUTCDate());
+	return {
+		YYYY: YYYY,
+		MM: MM,
+		DD: DD,
+		hh: hh,
+		mm: mm,
+		ss: ss,
+		ms: ms,
+		TZH: TZH,
+		TZM: TZM,
+	};
 }
