@@ -1,22 +1,41 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@std/bytes@^1.0.6": "1.0.6",
     "jsr:@std/crypto@1": "1.0.0",
+    "jsr:@std/csv@*": "1.0.6",
     "jsr:@std/encoding@1": "1.0.0",
     "jsr:@std/fs@~0.229.3": "0.229.3",
+    "jsr:@std/streams@^1.0.9": "1.0.17",
+    "npm:@types/node@*": "22.15.15",
     "npm:bson@6": "6.8.0",
     "npm:mongodb@*": "6.8.0",
     "npm:mongodb@6": "6.8.0"
   },
   "jsr": {
+    "@std/bytes@1.0.6": {
+      "integrity": "f6ac6adbd8ccd99314045f5703e23af0a68d7f7e58364b47d2c7f408aeb5820a"
+    },
     "@std/crypto@1.0.0": {
       "integrity": "9604ee69022cbf59e5a5981a2786ab34324a8e7b8a0b8b0d66ac999f658a233d"
+    },
+    "@std/csv@1.0.6": {
+      "integrity": "52ef0e62799a0028d278fa04762f17f9bd263fad9a8e7f98c14fbd371d62d9fd",
+      "dependencies": [
+        "jsr:@std/streams"
+      ]
     },
     "@std/encoding@1.0.0": {
       "integrity": "3cabf87b3eadb69126b42998188c87155238ceef805af3f241acca00ddb0cbb2"
     },
     "@std/fs@0.229.3": {
       "integrity": "783bca21f24da92e04c3893c9e79653227ab016c48e96b3078377ebd5222e6eb"
+    },
+    "@std/streams@1.0.17": {
+      "integrity": "7859f3d9deed83cf4b41f19223d4a67661b3d3819e9fc117698f493bf5992140",
+      "dependencies": [
+        "jsr:@std/bytes"
+      ]
     }
   },
   "npm": {
@@ -24,6 +43,12 @@
       "integrity": "sha512-qKwC/M/nNNaKUBMQ0nuzm47b7ZYWQHN3pcXq4IIcoSBc2hOIrflAxJduIvvqmhoz3gR2TacTAs8vlsCVPkiEdQ==",
       "dependencies": [
         "sparse-bitfield"
+      ]
+    },
+    "@types/node@22.15.15": {
+      "integrity": "sha512-R5muMcZob3/Jjchn5LcO8jdKwSCbzqmPB6ruBxMcf9kbxtniZHP327s6C37iOfuw8mbKK3cAQa7sEl7afLrQ8A==",
+      "dependencies": [
+        "undici-types"
       ]
     },
     "@types/webidl-conversions@7.0.3": {
@@ -71,6 +96,9 @@
       "dependencies": [
         "punycode"
       ]
+    },
+    "undici-types@6.21.0": {
+      "integrity": "sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ=="
     },
     "webidl-conversions@7.0.0": {
       "integrity": "sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g=="

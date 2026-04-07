@@ -18,10 +18,10 @@ const CONFIG = JSON.parse(await Deno.readTextFile('./config.json'));
 //const CURRENCY = CONFIG.money
 
 const TODAY = new Date().toISOString().substring(0, 10);
-const START_DATE = '2024-01-01';
+const START_DATE = '2022-01-01';
 const YEAR = START_DATE.substring(0, 4);
 const MONTH = START_DATE.substring(5, 7);
-const END_DATE = '2024-01-01';
+const END_DATE = '2026-03-31';
 //const END_DATE = `${YEAR}-12-${monthDays(MONTH, YEAR)}`;
 const DEVICE = 'station';
 const ENDPOINT = '7';

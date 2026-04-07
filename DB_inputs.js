@@ -1,7 +1,15 @@
 import { formatDateTimeLocal } from './dateTime.js';
+import { MongoClient } from 'npm:mongodb@6';
 
+const URL = 'mongodb://localhost:27017';
+const CLIENT = new MongoClient(URL);
+const DB_NAME = 'solarDB';
+const COLL_NAME = 'consumedGenerated';
 
-const ELECTRICITY = await Deno.readTextFile('./cache/ELECTRICITY_USAGE_CREDIT.csv');
+const CHECK_DB = await checkDb();
+console.log(`Database check result: ${CHECK_DB}`);
+
+const ELECTRICITY = await Deno.readTextFile('./cache/Electricity.csv');
 const OUTPUT_JSON = './cache/electricity.json';
 
 async function csvToJson() {
